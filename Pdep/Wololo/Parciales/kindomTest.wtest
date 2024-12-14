@@ -1,0 +1,100 @@
+import kingdom.*
+
+describe "Primera Parte" {
+test "El umbrío es un incorpóreo oscuro, con 10 de defensa, y comienza con 50 PV. Queda con 40 de puntoVida luego de recibir un ataque físico de potenciaMagica 20" {
+    const umbrio = new Incorporeos(puntoVida = 50, defenza = 10, elemento = oscuridad)
+    const ataqueFisico = new AtaqueFisico(potencia = 20)
+    umbrio.recibirAtaqueFisico(ataqueFisico)
+    assert.equals(40, umbrio.puntoVida())
+}
+
+test "El nocturno rojo es un sincorazón de fuego que comienza con 80 PV. Queda con 80 de puntoVida luego de recibir un ataque mágico de fuego de potencia 100" {
+    const hechizoFuego = new AtaqueMagico(elemento = fuego, potenciaMagica = 100)
+    const nocturnoRojo = new SinCorazon(puntoVida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueMagico(hechizoFuego)
+    assert.equals(80, nocturnoRojo.puntoVida())
+}
+
+test "El nocturno rojo queda con 60 PV luego de recibir un ataque mágico de hielo de potenciaMagica 10" {
+    const hechizoHielo = new AtaqueMagico(elemento = hielo, potenciaMagica = 10)
+    const nocturnoRojo = new SinCorazon(puntoVida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueMagico(hechizoHielo)
+    assert.equals(60, nocturnoRojo.puntoVida())
+}
+
+test "El nocturno rojo queda con 70 PV luego de recibir un ataque mágico de luz de potenciaMagica 10" {
+    const hechizoLuz = new AtaqueMagico(elemento = luz, potenciaMagica = 10)
+    const nocturnoRojo = new SinCorazon(puntoVida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueMagico(hechizoLuz)
+    assert.equals(70, nocturnoRojo.puntoVida())
+}
+
+test "El nocturno rojo queda con 44 PV luego de recibir un ataque físico de potenciaMagica 40" {
+    const nocturnoRojo = new SinCorazon(puntoVida = 80, elemento = fuego)
+    const ataqueFisico = new AtaqueFisico(potencia = 40)
+    nocturnoRojo.recibirAtaqueFisico(ataqueFisico)
+    assert.equals(44, nocturnoRojo.puntoVida())
+}
+
+}
+
+describe "Segunda Parte" {
+
+//Heroes
+const sora = new Heroe(fuerza = 10 , puntosMana = 8, llaveEspada = llaveDelReino)
+const micky = new Heroe(fuerza = 5 , puntosMana = 13, llaveEspada = exporadorEstelar)
+const riku = new Heroe(fuerza = 15 , puntosMana = 4, llaveEspada = caminoAlAlba)
+
+//llaves
+const llaveDelReino = new LlaveEspada(poderFisico = 3, poderMagico = 5)
+const exporadorEstelar = new LlaveEspada(poderFisico = 2, poderMagico = 10)
+const caminoAlAlba = new LlaveEspada(poderFisico = 5, poderMagico = 3)
+const brisaDescanrada = new LlaveEspada(poderFisico = 5, poderMagico = 2)
+
+//Hechizos
+const piro = new Hechizo(elemento = fuego, potenciaBase = 5)
+const chispa = new Hechizo(elemento = luz, potenciaBase = 1)
+const ragnarok = new Hechizo(elemento = luz, potenciaBase = 30)
+
+// Enemigos
+const umbrio = new Incorporeos(puntoVida = 50, defenza = 10, elemento = oscuridad)
+const nocturnoRojo = new SinCorazon(puntoVida = 80, elemento = fuego)
+const rapsodiaAzul = new SinCorazon(puntoVida = 80, elemento = hielo)
+
+  test "Si Sora ataca físicamente a un umbrío con PV iniciales, éste queda con 47 PV." {
+    sora.atacarDanioFisico(umbrio)
+    assert.equals(47, umbrio.puntoVida())
+  }
+
+  test "Si Riku ataca físicamente a un nocturno rojo con PV iniciales, éste queda con 62 PV." {
+    riku.atacarDanioFisico(nocturnoRojo)
+    assert.equals(62, nocturnoRojo.puntoVida())
+  }
+
+  test "Si Sora lanza Piro a un rapsodia azul (igual al nocturno rojo, pero de elemento hielo) con PV iniciales, éste queda con 30 PV " {
+    sora.atacarDanioMagicamente(rapsodiaAzul, piro)
+    assert.equals(30, rapsodiaAzul.puntoVida())
+  }
+
+    test "Si Sora lanza Piro a un rapsodia azul (igual al nocturno rojo, pero de elemento hielo) con PV iniciales, Sora queda con 3 PM." {
+    sora.atacarDanioMagicamente(rapsodiaAzul, piro)
+    assert.equals(3, sora.puntosMana())
+    }
+}
+
+describe "Parte 3" {
+  //NADA
+}
+
+describe "Parte 4" {
+
+  const ventus = new Ventus(fuerza = 8, puntosMana = 7, llaveEspada = brisaDescanrada)
+  const brisaDescanrada = new LlaveEspada(poderFisico = 5, poderMagico = 2)
+  test "description" {
+    
+  }
+}
+
+
+
+

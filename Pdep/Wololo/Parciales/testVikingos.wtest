@@ -1,0 +1,20 @@
+import vikingos.*
+
+describe "Test Vikingos"{
+        const soldado = new Soldado(asesinatos = 1, oro  = 0 , estatusSocial = karl)
+        const aldea = new Aldeas(cantidadDeCruzifijos = 150)
+        const capital = new Capitales(cantidadDeDefensores = 1, riqueza = 100)
+        const soldado2 = new Soldado(asesinatos = 100, oro = 0 , estatusSocial = jarl)
+        const expedicion = new Expediciones(objetivos = #{aldea, capital})
+    // test " intentar subir si no se pudo, con la construcción de los objetos necesarios."{
+    //     expedicion.subir(soldado)
+    // }
+
+    test "La aldea es valeLaPena"{
+        assert.that(aldea.valeLaPena(10))
+    }
+    
+    test "La capital vale la pena"{
+        assert.that(capital.valeLaPena(0))
+    }
+}

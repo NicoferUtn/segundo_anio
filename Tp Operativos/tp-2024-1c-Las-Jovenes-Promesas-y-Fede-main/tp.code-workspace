@@ -1,0 +1,46 @@
+{
+	"settings": {
+		"debug.onTaskErrors": "abort",
+		"files.associations": {
+			"*.h": "c",
+			"array": "c",
+			"deque": "c",
+			"forward_list": "c",
+			"list": "c",
+			"string": "c",
+			"unordered_map": "c",
+			"vector": "c",
+			"io_context": "c",
+			"string_view": "c",
+			"initializer_list": "c",
+			"ratio": "c",
+			"system_error": "c",
+			"functional": "c",
+			"tuple": "c",
+			"type_traits": "c",
+			"utility": "c",
+			"buffer": "c",
+			"typeinfo": "c",
+			"cstdlib": "c",
+			"random": "c"
+		},
+		"C_Cpp.errorSquiggles": "disabled",
+	},
+	"folders": [
+		{
+			"path": "kernel"
+		},
+		{
+			"path": "cpu"
+		},
+		{
+			"path": "memoria"
+		},
+		{
+			"path": "entradasalida"
+		},
+		{
+			"path": "utils"
+		}
+	]
+}

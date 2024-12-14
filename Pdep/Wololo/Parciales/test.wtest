@@ -1,0 +1,88 @@
+import kindinObject.*
+
+describe "Primera Parte" {
+test "El umbrío es un incorpóreo oscuro, con 10 de defensa, y comienza con 50 PV. Queda con 40 de vida luego de recibir un ataque físico de potencia 20" {
+    const umbrio = new Incoporeos(vida = 50, defenza = 10, elemento = oscuridad)
+    umbrio.recibirAtaqueFisico(20)
+    assert.equals(40, umbrio.vida())
+}
+
+test "El nocturno rojo es un sincorazón de fuego que comienza con 80 PV. Queda con 80 de vida luego de recibir un ataque mágico de fuego de potencia 100" {
+    const hechizoFuego = new AtaqueMagico(elemento = fuego, potencia = 100)
+    const nocturnoRojo = new Sincorazon(vida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueMagico(hechizoFuego)
+    assert.equals(80, nocturnoRojo.vida())
+}
+
+test "El nocturno rojo queda con 60 PV luego de recibir un ataque mágico de hielo de potencia 10" {
+    const hechizoHielo = new AtaqueMagico(elemento = hielo, potencia = 10)
+    const nocturnoRojo = new Sincorazon(vida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueMagico(hechizoHielo)
+    assert.equals(60, nocturnoRojo.vida())
+}
+
+test "El nocturno rojo queda con 70 PV luego de recibir un ataque mágico de luz de potencia 10" {
+    const hechizoLuz = new AtaqueMagico(elemento = luz, potencia = 10)
+    const nocturnoRojo = new Sincorazon(vida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueMagico(hechizoLuz)
+    assert.equals(70, nocturnoRojo.vida())
+}
+
+test "El nocturno rojo queda con 44 PV luego de recibir un ataque físico de potencia 40" {
+    const nocturnoRojo = new Sincorazon(vida = 80, elemento = fuego)
+    nocturnoRojo.recibirAtaqueFisico(40)
+    assert.equals(44, nocturnoRojo.vida())
+}
+
+}
+
+describe "Segunda Parte" {
+
+//Heroes
+const sora = new Heroe(fuerza = 10 , mana = 8, equipamiento = llaveDelReino)
+const micky = new Heroe(fuerza = 5 , mana = 13, equipamiento = exporadorEstelar)
+const riku = new Heroe(fuerza = 15 , mana = 4, equipamiento = caminoAlAlba)
+
+//llaves
+const llaveDelReino = new LlaveEspada(poderFisico = 3, poderMagico = 5)
+const exporadorEstelar = new LlaveEspada(poderFisico = 2, poderMagico = 10)
+const caminoAlAlba = new LlaveEspada(poderFisico = 5, poderMagico = 3)
+const brisaDescanrada = new LlaveEspada(poderFisico = 5, poderMagico = 2)
+
+//Hechizos
+const piro = new Hechizos(elemento = fuego, poderBase = 5)
+const chispa = new Hechizos(elemento = luz, poderBase = 1)
+const ragnarok = new Hechizos(elemento = luz, poderBase = 30)
+
+// Enemigos
+const umbrio = new Incoporeos(vida = 50, defenza = 10, elemento = oscuridad)
+const nocturnoRojo = new Sincorazon(vida = 80, elemento = fuego)
+const rapsodiaAzul = new Sincorazon(vida = 80, elemento = hielo)
+
+  test "Si Sora ataca físicamente a un umbrío con PV iniciales, éste queda con 47 PV." {
+    sora.atacarFisicamente(umbrio)
+    assert.equals(47, umbrio.vida())
+  }
+
+  test "Si Riku ataca físicamente a un nocturno rojo con PV iniciales, éste queda con 62 PV." {
+    riku.atacarFisicamente(nocturnoRojo)
+    assert.equals(62, nocturnoRojo.vida())
+  }
+
+  test "Si Sora lanza Piro a un rapsodia azul (igual al nocturno rojo, pero de elemento hielo) con PV iniciales, éste queda con 30 PV " {
+    sora.atacarMagicamente(rapsodiaAzul, piro)
+    assert.equals(30, rapsodiaAzul.vida())
+  }
+
+    test "Si Sora lanza Piro a un rapsodia azul (igual al nocturno rojo, pero de elemento hielo) con PV iniciales, Sora queda con 3 PM." {
+    sora.atacarMagicamente(rapsodiaAzul, piro)
+    assert.equals(3, sora.mana())
+    }
+}
+
+
+describe "tercera Parte" {
+  test "description" {
+    
+  }
+}
